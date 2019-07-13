@@ -20,7 +20,6 @@ export class ClockComponent implements OnInit {
 
   public clock() {
     this.time = moment().format("HH:mm:ss");
-    console.log(this.time);
   }
 
 }
