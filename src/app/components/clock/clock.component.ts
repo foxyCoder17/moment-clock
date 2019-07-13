@@ -18,7 +18,7 @@ export class ClockComponent implements OnInit {
     return moment().format("MMM Do YYYY");
   }
 
-  public clock() {
+  public clock(){
     this.time = moment().format("HH:mm:ss");
   }
 
