@@ -7,8 +7,10 @@ import * as moment from 'moment';
   styleUrls: ['./clock.component.scss']
 })
 export class ClockComponent implements OnInit {
-  public time: any;
-  constructor() { }
+  public time: any ;
+  constructor() { 
+    this.time = moment().format("HH:mm:ss");
+  }
 
   ngOnInit() {
     setInterval(this.clock.bind(this) , 1000);
