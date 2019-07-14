@@ -5,13 +5,26 @@
   {{ time }}
 </div>
 <div class="button">
-  <button>
+  <button (click)="addItem()">
     Add alarm
   </button>
-  <input
-    [owlDateTime]="dt1"
-    [owlDateTimeTrigger]="dt1"
-    placeholder="Date Time"
-  />
-  <owl-date-time #dt1></owl-date-time>
 </div>
+<form [formGroup]="alarmFrmGrp">
+  <div
+    formArrayName="alarmFrmArray"
+    *ngFor="let alarm of alarms; let i = index"
+    class="alarm"
+  >
+    <input
+      matInput
+      readonly
+      [owlDateTime]="dt1"
+      [owlDateTimeTrigger]="dt1"
+      placeholder="Choose date and time"
+      [formControlName]="i"
+    />
+    <owl-date-time #dt1></owl-date-time>
+  </div>
+</form>
+
+<div class="form-value">{{ alarmFrmGrp.valueChanges | async | json }}</div>
